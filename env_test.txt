@@ -1,0 +1,5 @@
+To put in .env
+
+SENTRY_AUTH_TOKEN="your token"
+APP_ENV='production'
+NEXT_PUBLIC_APP_ENV='production'

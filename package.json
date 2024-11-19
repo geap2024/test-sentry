@@ -2,21 +2,33 @@
   "name": "sentry-test-app",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@next/env": "^14.2.13",
+    "@sentry/nextjs": "^8.38.0",
+    "api": "^6.1.2",
+    "axios": "^1.7.7",
+    "next": "14.1.0",
+    "next-intl": "^3.19.1",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3"
+    "react-dom": "19.0.0-rc-66855b96-20241106"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
+    "@types/node": "^20.17.6",
     "@types/react": "^18",
-    "@types/react-dom": "^18"
-  }
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
+  "packageManager": "yarn@4.5.0+sha512.837566d24eec14ec0f5f1411adb544e892b3454255e61fdef8fd05f3429480102806bac7446bc9daff3896b01ae4b62d00096c7e989f1596f2af10b927532f39"
 }

@@ -1,0 +1,25 @@
+services:
+  frontend:
+    container_name: sentry-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - morpho
+    environment:
+      - APP_ENV=${APP_ENV}
+      - NEXT_PUBLIC_APP_ENV=${APP_ENV}
+      - SENTRY_AUTH_TOKEN=${SENTRY_AUTH_TOKEN}
+
+volumes:
+  db-data:
+  gis-volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./volumes
+      o: bind
+
+networks:
+  morpho:
+    name: Morpho
